@@ -7,5 +7,29 @@
 <body>
   <h1>Hello from Netlify!</h1>
   <p>This is my first deployed web page.</p>
+  <div id="particles-js"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("particles-js", {
+    background: { color: { value: "#000" } },
+    particles: {
+      number: { value: 80 },
+      color: { value: "#88ccff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      move: { enable: true, speed: 2 },
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" }
+      },
+      modes: {
+        repulse: { distance: 100 }
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
