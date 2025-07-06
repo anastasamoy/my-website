@@ -3,55 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <title>My Website</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #88ccff, #a066ff, #9966ff, #5555ff);
+      background-size: 400% 400%;
+      animation: gradientWave 15s ease infinite;
+    }
+
+    @keyframes gradientWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
-  <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -1;"></div>
+  <div id="particles-js"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-<script>
-  tsParticles.load("particles-js", {
-    background: {
-      color: { value: "#000000" } // Задний фон, можешь заменить на прозрачный
-    },
-    particles: {
-      number: { value: 100 },
-      color: {
-        value: ["#88ccff", "#a066ff", "#9966ff", "#5555ff"], // Оттенки от синего к фиолетовому
-        animation: {
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("particles-js", {
+      particles: {
+        number: { value: 100 },
+        color: { value: "#ffffff" }, // белые частицы, чтобы были видны на фоне
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.6,
+          random: true
+        },
+        size: {
+          value: { min: 2, max: 5 }
+        },
+        move: {
           enable: true,
-          speed: 30,
-          sync: false
+          speed: 1.5,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" }
         }
       },
-      shape: { type: "circle" },
-      opacity: {
-        value: 0.6,
-        random: true
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100 }
+        }
       },
-      size: {
-        value: { min: 2, max: 5 }
-      },
-      move: {
-        enable: true,
-        speed: 1.5,
-        direction: "none",
-        random: true,
-        straight: false,
-        outModes: { default: "out" }
-      }
-    },
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        resize: true
-      },
-      modes: {
-        repulse: { distance: 100 }
-      }
-    },
-    fullScreen: { enable: false } // Чтобы не занимало весь экран, если ты вставляешь в блок
-  });
-</script>
-
+      fullScreen: { enable: false }
+    });
+  </script>
 </body>
 </html>
