@@ -11,63 +11,22 @@
       overflow: hidden;
       background-color: #000;
     }
+
     #particles-js {
       position: absolute;
       width: 100%;
       height: 100%;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
+<div id="particles-js"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-  <script>
-    tsParticles.load("particles-js", {
-      particles: {
-        number: { value: 120 },
-        color: {
-          value: "#88ccff",
-          animation: {
-            enable: true,
-            speed: 10,
-            sync: false
-          }
-        },
-        shape: { type: "circle" },
-        size: {
-          value: { min: 2, max: 4 },
-          animation: {
-            enable: true,
-            speed: 2,
-            minimumValue: 1,
-            sync: false
-          }
-        },
-        opacity: {
-          value: 0.6
-        },
-        move: {
-          enable: true,
-          speed: 1.5,
-          direction: "none",
-          random: true,
-          straight: false,
-          outModes: { default: "out" }
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: { enable: true, mode: "repulse" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 100 }
-        }
-      },
-      fullScreen: { enable: false },
-      detectRetina: true
-    });
-  </script>
+<!-- Подключение библиотеки tsParticles -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+<!-- Подключение твоего скрипта -->
+<script src="s.js"></script> <!-- путь укажи правильно, если он в той же папке, пиши просто s.js -->
 </body>
 </html>
