@@ -5,29 +5,53 @@
   <title>My Website</title>
 </head>
 <body>
-  <div id="particles-js"></div>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-  <script>
-    tsParticles.load("particles-js", {
-      background: { color: { value: "#000" } },
-      particles: {
-        number: { value: 80 },
-        color: { value: "#88ccff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        move: { enable: true, speed: 2 },
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" }
-        },
-        modes: {
-          repulse: { distance: 100 }
+  <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: -1;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("particles-js", {
+    background: {
+      color: { value: "#000000" } // Задний фон, можешь заменить на прозрачный
+    },
+    particles: {
+      number: { value: 100 },
+      color: {
+        value: ["#88ccff", "#a066ff", "#9966ff", "#5555ff"], // Оттенки от синего к фиолетовому
+        animation: {
+          enable: true,
+          speed: 30,
+          sync: false
         }
+      },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.6,
+        random: true
+      },
+      size: {
+        value: { min: 2, max: 5 }
+      },
+      move: {
+        enable: true,
+        speed: 1.5,
+        direction: "none",
+        random: true,
+        straight: false,
+        outModes: { default: "out" }
       }
-    });
-  </script>
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        resize: true
+      },
+      modes: {
+        repulse: { distance: 100 }
+      }
+    },
+    fullScreen: { enable: false } // Чтобы не занимало весь экран, если ты вставляешь в блок
+  });
+</script>
 
 </body>
 </html>
