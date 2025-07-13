@@ -48,18 +48,21 @@
         const password = document.getElementById("password").value;
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            document.getElementById("status").innerText = "Регистрация успешна!";
+            // Успешная регистрация — переходим на главную
+            window.location.href = "/index.html"; // ← путь к главной странице
         } catch (error) {
             document.getElementById("status").innerText = "Ошибка: " + error.message;
         }
     };
+
 
     window.loginUser = async () => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            document.getElementById("status").innerText = "Вход выполнен!";
+            // Успешный вход — переходим на главную
+            window.location.href = "/index.html"; // ← или другой путь
         } catch (error) {
             document.getElementById("status").innerText = "Ошибка: " + error.message;
         }
