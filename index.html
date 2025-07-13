@@ -42,7 +42,9 @@
   </div>
   <div class="user-menu">
     <button class="login">Prihlásiť sa</button>
-    <button class="logout" style="display: none;">Odhlásiť sa</button>
+    <div class="dropdown" style="display: none;">
+      <button class="logout">Odhlásiť sa</button>
+    </div>
   </div>
 
 </header>
@@ -282,13 +284,11 @@
       loginButton.textContent = user.email;
       loginButton.style.cursor = 'pointer';
 
-      // Удаляем старый обработчик (если был)
-      loginButton.onclick = null;
-
-      // Нажатие по email — показать/скрыть кнопку выхода
-      loginButton.addEventListener('click', () => {
-        logoutButton.style.display = logoutButton.style.display === 'block' ? 'none' : 'block';
-      });
+      loginButton.onclick = (e) => {
+        e.stopPropagation();
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      };
 
       logoutButton.addEventListener('click', () => {
         signOut(auth).then(() => {
@@ -296,6 +296,12 @@
         });
       });
 
+      // Закрытие dropdown при клике вне его
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.user-menu')) {
+          document.querySelector('.dropdown').style.display = 'none';
+        }
+      });
     } else {
       loginButton.textContent = 'Prihlásiť sa';
       loginButton.onclick = () => window.location.href = 'HTML/register.html';
