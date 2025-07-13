@@ -207,24 +207,32 @@ nav a:hover {
 .hidden {
     display: none !important;
 }
-.bell {
+.bell-icon-wrapper {
+    display: inline-block;
     position: relative;
-    margin-left: 20px;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    background-image: url('foto/icons1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+}
+.bell-icon, .bell-icon-active {
+    width: 30px; /* одинаковый размер для обеих иконок */
+    height: 30px;
+    transition: opacity 0.2s;
+
 }
 
-.bell.active {
-    background-image: url('foto/icons2.png');
+.bell {
+    cursor: pointer;
+    position: relative;
+    top: -7px;
+}
+
+.bell:hover .bell-icon {
+    transform: scale(1.1);
 }
 .notification-panel {
     position: absolute;
-    right: 40px;
-    top: 60px;
+    right: 0;
+    top: 100%;
+    transform: translateX(160px);
+
     background: rgba(255, 255, 255, 0);
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -232,6 +240,7 @@ nav a:hover {
     width: 300px;
     display: none;
     z-index: 999;
+    margin-top: 10px;
 }
 
 .notification-panel.active {

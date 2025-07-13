@@ -26,18 +26,25 @@
         <li><a href="#">Kalendár podujatí</a></li>
         <li><a href="#">Kontakt</a></li>
         <li><a href="#">Domov</a></li>
+        <div class="bell hidden">
+          <div class="bell-icon-wrapper" onclick="toggleBell(this)">
+            <img src="foto/icons2.png" alt="Notifications" class="bell-icon">
+            <img src="foto/icons1.png" alt="Notifications Active" class="bell-icon-active" style="display: none;">
+          </div>
+          <div class="notification-panel hidden">
+            <div class="notification-box">
+              📅 Nové podujatie: Workshop AI v piatok o 10:00
+            </div>
+            <div class="notification-box">
+              🔔 Pripomienka: Termín na registráciu končí zajtra!
+            </div>
+          </div>
+        </div>
       </ul>
+
     </nav>
   </div>
-  <div class="bell hidden" onclick="document.querySelector('.notification-panel').classList.toggle('active')"></div>
-  <div class="notification-panel hidden">
-    <div class="notification-box">
-      📅 Nové podujatie: Workshop AI v piatok o 10:00
-    </div>
-    <div class="notification-box">
-      🔔 Pripomienka: Termín na registráciu končí zajtra!
-    </div>
-  </div>
+
   <div class="user-menu">
     <button class="login">Prihlásiť sa</button>
     <div class="dropdown" style="display: none;">
@@ -100,7 +107,7 @@
     <section class="hero-banner">
       <div class="hero-overlay">
         <div class="hero-content">
-          <h5>AI PRE FIE</h5>
+          <h5>AI PRE FEI</h5>
           <h1>Asistent pre študentov<br>a učiteľov</h1>
           <p>Náš bot odpovedá na otázky o štúdiu, predmetoch a všetkom, čo sa týka FIE.</p>
           <a href="https://prod.agentkovac.sk/" class="hero-btn">Vyskúšajte bota →</a>
@@ -278,12 +285,36 @@
   const bell = document.querySelector('.bell');
   const notificationPanel = document.querySelector('.notification-panel');
 
+  // Функция для переключения иконки и панели уведомлений
+  function toggleBell() {
+    const bellIcon = bell.querySelector('.bell-icon');
+    const bellIconActive = bell.querySelector('.bell-icon-active');
+
+    // Переключаем панель уведомлений
+    notificationPanel.classList.toggle('active');
+
+    // Переключаем иконки
+    if (notificationPanel.classList.contains('active')) {
+      bellIcon.style.display = 'none';
+      if (bellIconActive) bellIconActive.style.display = 'block';
+    } else {
+      bellIcon.style.display = 'block';
+      if (bellIconActive) bellIconActive.style.display = 'none';
+    }
+  }
+
   // Показываем email и включаем функциональность
   onAuthStateChanged(auth, user => {
     if (user) {
       // Показываем звонок и уведомления
       bell.classList.remove('hidden');
       notificationPanel.classList.remove('hidden');
+
+      // Добавляем обработчик клика на колокольчик
+      bell.onclick = (e) => {
+        e.stopPropagation();
+        toggleBell();
+      };
 
       loginButton.textContent = user.email;
       loginButton.style.cursor = 'pointer';
@@ -305,6 +336,14 @@
         if (!e.target.closest('.user-menu')) {
           document.querySelector('.dropdown').style.display = 'none';
         }
+        // Закрытие панели уведомлений при клике вне ее
+        if (!e.target.closest('.bell') && !e.target.closest('.notification-panel')) {
+          notificationPanel.classList.remove('active');
+          const bellIcon = bell.querySelector('.bell-icon');
+          const bellIconActive = bell.querySelector('.bell-icon-active');
+          bellIcon.style.display = 'block';
+          if (bellIconActive) bellIconActive.style.display = 'none';
+        }
       });
     } else {
       // Скрываем звонок и уведомления
@@ -314,11 +353,6 @@
       loginButton.textContent = 'Prihlásiť sa';
       loginButton.onclick = () => window.location.href = 'HTML/register.html';
     }
-  });
-  document.querySelector('.bell').addEventListener('click', function() {
-    const panel = document.querySelector('.notification-panel');
-    panel.classList.toggle('active');
-    this.classList.toggle('active');
   });
 </script>
 
