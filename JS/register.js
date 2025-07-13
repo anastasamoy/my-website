@@ -89,7 +89,7 @@
     document.getElementById("status").innerText = "You have been signed out";
 };
 
-    onAuthStateChanged(auth, user => {
+    /*onAuthStateChanged(auth, user => {
     if (user) {
         document.querySelector('.notification-panel').classList.remove('hidden');
         document.querySelector('.bell').classList.remove('hidden');
@@ -102,3 +102,4 @@
         loginButton.textContent = 'Prihlásiť sa';
 }
 });
+*/
