@@ -86,7 +86,3 @@
     ],
     detectRetina: true
 });
-
-    document.querySelector(".login").addEventListener("click", () => {
-        window.location.href = "HTML/register.html";
-    });
