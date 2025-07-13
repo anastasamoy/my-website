@@ -29,9 +29,7 @@
       </ul>
     </nav>
   </div>
-  <div class="bell hidden" onclick="document.querySelector('.notification-panel').classList.toggle('active')">
-    🔔
-  </div>
+  <div class="bell hidden" onclick="document.querySelector('.notification-panel').classList.toggle('active')"></div>
   <div class="notification-panel hidden">
     <div class="notification-box">
       📅 Nové podujatie: Workshop AI v piatok o 10:00
@@ -316,6 +314,11 @@
       loginButton.textContent = 'Prihlásiť sa';
       loginButton.onclick = () => window.location.href = 'HTML/register.html';
     }
+  });
+  document.querySelector('.bell').addEventListener('click', function() {
+    const panel = document.querySelector('.notification-panel');
+    panel.classList.toggle('active');
+    this.classList.toggle('active');
   });
 </script>
 

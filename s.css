@@ -211,9 +211,16 @@ nav a:hover {
     position: relative;
     margin-left: 20px;
     cursor: pointer;
-    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    background-image: url('foto/icons1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
+.bell.active {
+    background-image: url('foto/icons2.png');
+}
 .notification-panel {
     position: absolute;
     right: 40px;
