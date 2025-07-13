@@ -218,7 +218,7 @@
 <!-- Firebase App (настраиваемый SDK) -->
 <script type="module">
     // Импорт Firebase SDK
-    import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
     import {
         getAuth,
         createUserWithEmailAndPassword,
@@ -241,15 +241,17 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
+    // Глобальная переменная для отслеживания перенаправления
+    let isRedirecting = false;
+
     // Обработчики
     window.registerUser = async () => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            // Перенаправляем сразу после успешной регистрации
-            window.location.href = "/index.html";
+            await createUserWithEmailAndPassword(auth, email, password);
+            // После регистрации автоматически войдет, сработает onAuthStateChanged
         } catch (error) {
             document.getElementById("status").innerText = "Error: " + error.message;
         }
@@ -260,9 +262,8 @@
         const password = document.getElementById("password").value;
 
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            // Перенаправляем сразу после успешного входа
-            window.location.href = "/index.html";
+            await signInWithEmailAndPassword(auth, email, password);
+            // После входа сработает onAuthStateChanged
         } catch (error) {
             document.getElementById("status").innerText = "Error: " + error.message;
         }
@@ -291,18 +292,31 @@
         document.getElementById("status").innerText = "You have been signed out";
     };
 
-    // Проверка состояния аутентификации (только для отображения статуса)
+    // Единый обработчик состояния аутентификации
     onAuthStateChanged(auth, user => {
-        if (user) {
-            document.getElementById("status").innerText = "Signed in as: " + user.email;
-            // Если пользователь уже авторизован, перенаправляем
-            if (window.location.pathname.includes('register.html')) {
+        if (user && !isRedirecting) {
+            isRedirecting = true; // Предотвращаем множественные перенаправления
+            console.log("User authenticated, redirecting...");
+            setTimeout(() => {
                 window.location.href = "/index.html";
-            }
-        } else {
+            }, 500); // Небольшая задержка для надежности
+        } else if (!user) {
             document.getElementById("status").innerText = "";
         }
     });
+
+    // Проверяем сразу при загрузке, может пользователь уже авторизован
+    auth.currentUser && !isRedirecting && (isRedirecting = true) && setTimeout(() => {
+        window.location.href = "/index.html";
+    }, 100);
+    setTimeout(() => {
+        try {
+            window.location.href = "/index.html";
+        } catch (e) {
+            console.error("Redirect failed:", e);
+            window.location.reload();
+        }
+    }, 500);
 </script>
 </body>
 </html>
