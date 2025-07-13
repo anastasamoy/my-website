@@ -68,18 +68,18 @@
 
     window.switchToRegister = () => {
     document.querySelector('.greeting').textContent = 'Welcome!';
-    document.querySelector('.auth-title').textContent = 'Create new account';
-    document.querySelector('.auth-button').textContent = 'SIGN UP';
-    document.querySelector('.switch-auth').innerHTML = 'Already have an account? <a href="#" onclick="switchToLogin()">Sign in</a>';
+    document.querySelector('.auth-title').textContent = 'Vytvoriť nové konto';
+    document.querySelector('.auth-button').textContent = 'VYTVORIŤ';
+    document.querySelector('.switch-auth').innerHTML = 'Už máte účet? <a href="#" onclick="switchToLogin()">Prihlásiť sa</a>';
     document.querySelector('.auth-button').onclick = registerUser;
     return false;
 };
 
     window.switchToLogin = () => {
     document.querySelector('.greeting').textContent = 'Hello!';
-    document.querySelector('.auth-title').textContent = 'Sign in to your account';
-    document.querySelector('.auth-button').textContent = 'SIGN IN';
-    document.querySelector('.switch-auth').innerHTML = 'Don\'t have an account? <a href="#" onclick="switchToRegister()">Sign up</a>';
+    document.querySelector('.auth-title').textContent = 'Prihláste sa do svojho konta';
+    document.querySelector('.auth-button').textContent = 'PRIHLÁSIŤ SA';
+    document.querySelector('.switch-auth').innerHTML = 'Ešte nemáte účet? <a href="#" onclick="switchToRegister()">Vytvoriť</a>';
     document.querySelector('.auth-button').onclick = loginUser;
     return false;
 };
