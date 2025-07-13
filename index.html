@@ -282,6 +282,9 @@
       loginButton.textContent = user.email;
       loginButton.style.cursor = 'pointer';
 
+      // Удаляем старый обработчик (если был)
+      loginButton.onclick = null;
+
       // Нажатие по email — показать/скрыть кнопку выхода
       loginButton.addEventListener('click', () => {
         logoutButton.style.display = logoutButton.style.display === 'block' ? 'none' : 'block';
@@ -292,11 +295,13 @@
           window.location.reload();
         });
       });
+
     } else {
       loginButton.textContent = 'Prihlásiť sa';
       loginButton.onclick = () => window.location.href = 'HTML/register.html';
     }
   });
+
 </script>
 
 
