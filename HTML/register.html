@@ -80,7 +80,7 @@
             position: absolute;
             left: 12px;
             top: 38px;
-            color: #a266ff; /* Фиолетовый цвет иконок */
+            color: #666;
             font-size: 16px;
         }
 
@@ -88,13 +88,13 @@
             position: absolute;
             right: 12px;
             top: 38px;
-            color: #a266ff; /* Фиолетовый цвет иконки глаза */
+            color: #666;
             cursor: pointer;
             font-size: 16px;
         }
 
         .password-toggle:hover {
-            color: #8a4dff; /* Более светлый фиолетовый при наведении */
+            color: #a266ff;
         }
 
         .forgot-password {
@@ -113,7 +113,7 @@
         .auth-button {
             width: 100%;
             padding: 14px;
-            background-color: #555; /* Серый цвет по умолчанию */
+            background-color: #a266ff;
             color: white;
             border: none;
             border-radius: 8px;
@@ -124,11 +124,7 @@
             transition: background-color 0.3s;
         }
 
-        .auth-button.active {
-            background-color: #a266ff; /* Фиолетовый цвет при активной кнопке */
-        }
-
-        .auth-button.active:hover {
+        .auth-button:hover {
             background-color: #8a4dff;
         }
 
@@ -175,7 +171,7 @@
         <a href="#" class="forgot-password">Forgot password?</a>
     </div>
 
-    <button class="auth-button" id="signInButton" disabled>SIGN IN</button>
+    <button class="auth-button" onclick="loginUser()">SIGN IN</button>
 
     <div class="switch-auth">
         Don't have an account? <a href="#" onclick="switchToRegister()">Sign up</a>
@@ -188,24 +184,6 @@
     // Toggle password visibility
     const togglePassword = document.querySelector('#togglePassword');
     const password = document.querySelector('#password');
-    const emailInput = document.querySelector('#email');
-    const passwordInput = document.querySelector('#password');
-    const signInButton = document.querySelector('#signInButton');
-
-    // Функция для проверки заполнения полей
-    function checkFields() {
-        if (emailInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
-            signInButton.disabled = false;
-            signInButton.classList.add('active');
-        } else {
-            signInButton.disabled = true;
-            signInButton.classList.remove('active');
-        }
-    }
-
-    // Слушатели событий для полей ввода
-    emailInput.addEventListener('input', checkFields);
-    passwordInput.addEventListener('input', checkFields);
 
     togglePassword.addEventListener('click', function() {
         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -241,9 +219,6 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Глобальная переменная для отслеживания перенаправления
-    let isRedirecting = false;
-
     // Обработчики
     window.registerUser = async () => {
         const email = document.getElementById("email").value;
@@ -251,7 +226,11 @@
 
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            // После регистрации автоматически войдет, сработает onAuthStateChanged
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    window.location.href = "/index.html";
+                }
+            });
         } catch (error) {
             document.getElementById("status").innerText = "Error: " + error.message;
         }
@@ -263,7 +242,11 @@
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            // После входа сработает onAuthStateChanged
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    window.location.href = "/index.html";
+                }
+            });
         } catch (error) {
             document.getElementById("status").innerText = "Error: " + error.message;
         }
@@ -292,31 +275,13 @@
         document.getElementById("status").innerText = "You have been signed out";
     };
 
-    // Единый обработчик состояния аутентификации
     onAuthStateChanged(auth, user => {
-        if (user && !isRedirecting) {
-            isRedirecting = true; // Предотвращаем множественные перенаправления
-            console.log("User authenticated, redirecting...");
-            setTimeout(() => {
-                window.location.href = "/index.html";
-            }, 500); // Небольшая задержка для надежности
-        } else if (!user) {
+        if (user) {
+            document.getElementById("status").innerText = "Signed in as: " + user.email;
+        } else {
             document.getElementById("status").innerText = "";
         }
     });
-
-    // Проверяем сразу при загрузке, может пользователь уже авторизован
-    auth.currentUser && !isRedirecting && (isRedirecting = true) && setTimeout(() => {
-        window.location.href = "/index.html";
-    }, 100);
-    setTimeout(() => {
-        try {
-            window.location.href = "/index.html";
-        } catch (e) {
-            console.error("Redirect failed:", e);
-            window.location.reload();
-        }
-    }, 500);
 </script>
 </body>
 </html>
