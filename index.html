@@ -1,32 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
-  <meta charset="UTF-8" />
-  <title>Перелив точек</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background-color: #000;
-    }
-
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI TEAM | STU FEI</title>
+  <link rel="stylesheet" href="s.css">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script src="particles.js" defer></script>
 </head>
 <body>
-<div id="particles-js"></div>
+<header>
+  <div class="logo">
+    <img src="fei-800.png" alt="Logo" />
+  </div>
+  <div class="menu-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-<!-- Подключение библиотеки tsParticles -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <div class="mobile-menu">
+    <nav>
+      <ul>
+        <li><a href="#">Aktuality</a></li>
+        <li><a href="#">Kalendár podujatí</a></li>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">Domov</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="bell" onclick="document.querySelector('.notification-panel').classList.toggle('active')">
+    🔔
+  </div>
+  <div class="notification-panel">
+    <div class="notification-box">
+      📅 Nové podujatie: Workshop AI v piatok o 10:00
+    </div>
+    <div class="notification-box">
+      🔔 Pripomienka: Termín na registráciu končí zajtra!
+    </div>
+  </div>
+  <div class="user-menu">
+    <button class="login">Prihlásiť sa</button>
+    <button class="logout" style="display: none;">Odhlásiť sa</button>
+  </div>
 
-<!-- Подключение твоего скрипта -->
-<script src="s.js"></script> <!-- путь укажи правильно, если он в той же папке, пиши просто s.js -->
+</header>
+
+<main>
+  <section class="intro">
+    <div class="text">
+      <h1>AI TEAM</h1>
+      <p>Uvoľnite svoju kreativitu, nechajte AI postarať sa o zvyšok</p>
+      <div class="btn-wrapper">
+        <a href="#" class="btn">Viac</a>
+      </div>
+    </div>
+    <div class="visual">
+      <canvas id="particles"></canvas>
+    </div>
+  </section>
+
+  <!-- Biely blok so zaoblenými rohmi -->
+  <section class="rounded-white-block">
+    <div class="aktu-header">
+      <h2>Aktuality</h2>
+      <a href="#" class="see-more-btn">Zobraziť viac →</a>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <img src="foto/1-1000x1333.jpg" alt="Aktualita">
+        <p><strong>21. septembra 2024</strong><br>
+          Nenahrádzame ľudí, ale vytvárame asistenta, aby im pomohol.</p>
+        <a href="#">Zobraziť viac →</a>
+      </div>
+      <div class="news-card">
+        <img src="foto/3-1-710x1536.jpg" alt="Aktualita">
+        <p><strong>15. septembra 2024</strong><br>
+          Nový kurz: Základy strojového učenia<br>
+          Otvorený pre všetkých študentov!</p>
+        <a href="#">Zobraziť viac →</a>
+      </div>
+      <div class="news-card">
+        <img src="foto/20241121_170434-710x1536.jpg" alt="Aktualita">
+        <p><strong>10. septembra 2024</strong><br>
+          Prednáška: Etika v AI<br>
+          Diskusia s odborníkmi a praktické príklady.</p>
+        <a href="#">Zobraziť viac →</a>
+      </div>
+      <div class="news-card">
+        <img src="foto/20241121_170434-710x1536.jpg" alt="Aktualita">
+        <p><strong>10. septembra 2024</strong><br>
+          Prednáška: Etika v AI<br>
+          Diskusia s odborníkmi a praktické príklady.</p>
+        <a href="#">Zobraziť viac →</a>
+      </div>
+    </div>
+    <section class="hero-banner">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h5>AI PRE BUSINESS</h5>
+          <h1>Pracujte múdrejšie<br>ako kedykoľvek predtým</h1>
+          <p>Objavte najlepšie AI riešenia pre váš biznis.</p>
+          <a href="#" class="hero-btn">Vyskúšajte bota →</a>
+        </div>
+      </div>
+    </section>
+    <section class="team-section">
+      <h2 class="team-title">O našom tíme</h2>
+
+      <!-- Blok 1: text vľavo, foto vpravo -->
+      <div class="team-block">
+        <div class="team-text">
+          <h3>Sme tím expertov</h3>
+          <p>Naši inžinieri, dizajnéri a analytici spolupracujú na vytváraní inovatívnych riešení v oblasti AI.</p>
+        </div>
+        <div class="team-image image-right">
+          <img src="foto/1-1-1536x710.jpg" alt="Tím 1">
+        </div>
+      </div>
+
+      <!-- Blok 2: foto vľavo, text vpravo -->
+      <div class="team-block reverse">
+        <div class="team-text">
+          <h3>Spájame technológie</h3>
+          <p>Staviame most medzi nápadmi a realitou, transformujeme biznis pomocou AI a automatizácie.</p>
+        </div>
+        <div class="team-image image-left">
+          <img src="foto/3-1536x710.jpg" alt="Tím 2">
+        </div>
+      </div>
+
+      <!-- Blok 3: text vľavo, foto vpravo -->
+      <div class="team-block">
+        <div class="team-text">
+          <h3>Myslíme mimo schém</h3>
+          <p>Každý projekt je výzvou, ku ktorej pristupujeme s kreativitou a hĺbkovými znalosťami technológií.</p>
+        </div>
+        <div class="team-image image-right">
+          <img src="foto/png.png" alt="Tím 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="team-members-section">
+      <div class="team-header">
+        <h1>Náš tím hrdinov</h1>
+        <p>Naša filozofia je jednoduchá; nájmite skvelých ľudí a dajte im<br>
+          zdroje a podporu na to, aby robili svoju najlepšiu prácu.</p>
+      </div>
+      <div class="team-container">
+        <div class="team-grid">
+          <!-- Člen tímu 1 -->
+          <div class="team-member">
+            <img src="https://i.pravatar.cc/400?img=1" alt="Sienna Hewitt">
+            <h3>Sienna Hewitt</h3>
+            <p class="position">Zakladateľka & CEO</p>
+            <p class="bio">Bývalá spoluzakladateľka Opendoor. Členka tímu Spotify a Clearbit.</p>
+          </div>
+
+          <!-- Člen tímu 2 -->
+          <div class="team-member">
+            <img src="https://i.pravatar.cc/400?img=2" alt="Ashwin Santiago">
+            <h3>Ashwin Santiago</h3>
+            <p class="position">Manažér vývoja</p>
+            <p class="bio">Vedúci vývojových tímov v Netflix, Pitch a Protocol Labs.</p>
+          </div>
+
+          <!-- Člen tímu 3 -->
+          <div class="team-member">
+            <img src="https://i.pravatar.cc/400?img=3" alt="Caitlyn King">
+            <h3>Caitlyn King</h3>
+            <p class="position">Produktový dizajnér</p>
+            <p class="bio">Zakladateľka dizajnového tímu Figma. Pracovala v Pico, Stripe a Tile.</p>
+          </div>
+
+          <!-- Člen tímu 4 -->
+          <div class="team-member">
+            <img src="https://i.pravatar.cc/400?img=4" alt="Owen Garcia">
+            <h3>Owen Garcia</h3>
+            <p class="position">Frontend vývojár</p>
+            <p class="bio">Bývalý frontend vývojár pre Linear, Coinbase a Postscript.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Стовпець 1 - Про нас -->
+        <div class="footer-column about-column">
+          <h4 class="footer-title">AI TEAM</h4>
+          <p class="footer-about">Vytvárame inovatívne riešenia v oblasti umelej inteligencie pre biznis a vzdelávanie.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Стовпець 2 - Навігація -->
+        <div class="footer-column nav-column">
+          <h4 class="footer-title">Navigácia</h4>
+          <ul class="footer-nav-list">
+            <li class="nav-item"><a href="#">Domov</a></li>
+            <li class="nav-item"><a href="#">Aktuality</a></li>
+            <li class="nav-item"><a href="#">Kalendár podujatí</a></li>
+            <li class="nav-item"><a href="#">Kontakt</a></li>
+
+          </ul>
+        </div>
+
+        <!-- Стовпець 3 - Контакти -->
+        <div class="footer-column contacts-column">
+          <h4 class="footer-title">Kontakty</h4>
+          <ul class="footer-contacts-list">
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span class="contact-text">Bratislava, Slovensko</span>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <span class="contact-text">info@aiteam.stu</span>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone contact-icon"></i>
+              <span class="contact-text">+421 123 456 789</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Стовпець 4 - Підписка -->
+        <div class="footer-column newsletter-column">
+          <h4 class="footer-title">Odber noviniek</h4>
+          <p class="newsletter-text">Zostaňte v obraze s našimi novinkami</p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Váš email" required>
+            <button type="submit" class="newsletter-btn">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2024 AI TEAM STU FEI. Všetky práva vyhradené.</p>
+        <div class="legal-links">
+          <a href="#" class="legal-link">Ochrana osobných údajov</a>
+          <a href="#" class="legal-link">Podmienky používania</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+  import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDI6SeoOGMvf1pmYVhbFTAnrwOtgruvmGI",
+    authDomain: "agentkovac.firebaseapp.com",
+    projectId: "agentkovac",
+    storageBucket: "agentkovac.firebasestorage.app",
+    messagingSenderId: "276041954237",
+    appId: "1:276041954237:web:fbdf61d4c04a1219e458d4"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const loginButton = document.querySelector('.login');
+  const logoutButton = document.querySelector('.logout');
+
+  // Показываем email и включаем функциональность
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      loginButton.textContent = user.email;
+      loginButton.style.cursor = 'pointer';
+
+      // Нажатие по email — показать/скрыть кнопку выхода
+      loginButton.addEventListener('click', () => {
+        logoutButton.style.display = logoutButton.style.display === 'block' ? 'none' : 'block';
+      });
+
+      logoutButton.addEventListener('click', () => {
+        signOut(auth).then(() => {
+          window.location.reload();
+        });
+      });
+    } else {
+      loginButton.textContent = 'Prihlásiť sa';
+      loginButton.onclick = () => window.location.href = 'HTML/register.html';
+    }
+  });
+</script>
+
+
 </body>
 </html>
