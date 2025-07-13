@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Регистрация | Agentkovac</title>
+</head>
+<body>
+<h2>Регистрация и вход</h2>
+
+<input type="email" id="email" placeholder="Email" /><br/>
+<input type="password" id="password" placeholder="Пароль" /><br/><br/>
+
+<button onclick="registerUser()">Зарегистрироваться</button>
+<button onclick="loginUser()">Войти</button>
+<button onclick="logoutUser()">Выйти</button>
+
+<p id="status"></p>
+
+<!-- Firebase App (настраиваемый SDK) -->
+<script type="module">
+    // Импорт Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+
+    // Конфигурация из Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyDI6SeoOGMvf1pmYVhbFTAnrwOtgruvmGI",
+        authDomain: "agentkovac.firebaseapp.com",
+        projectId: "agentkovac",
+        storageBucket: "agentkovac.firebasestorage.app",
+        messagingSenderId: "276041954237",
+        appId: "1:276041954237:web:fbdf61d4c04a1219e458d4"
+    };
+
+    // Инициализация Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Обработчики
+    window.registerUser = async () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            document.getElementById("status").innerText = "Регистрация успешна!";
+        } catch (error) {
+            document.getElementById("status").innerText = "Ошибка: " + error.message;
+        }
+    };
+
+    window.loginUser = async () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            document.getElementById("status").innerText = "Вход выполнен!";
+        } catch (error) {
+            document.getElementById("status").innerText = "Ошибка: " + error.message;
+        }
+    };
+
+    window.logoutUser = async () => {
+        await signOut(auth);
+        document.getElementById("status").innerText = "Вы вышли из системы";
+    };
+
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            document.getElementById("status").innerText = "Вы вошли как: " + user.email;
+        } else {
+            // document.getElementById("status").innerText = "Вы не вошли";
+        }
+    });
+</script>
+</body>
+</html>
