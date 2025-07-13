@@ -204,7 +204,9 @@ nav a:hover {
     line-height: 1.4;
     font-weight: 500;
 }
-
+.hidden {
+    display: none !important;
+}
 .bell {
     position: relative;
     margin-left: 20px;

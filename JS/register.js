@@ -91,8 +91,14 @@
 
     onAuthStateChanged(auth, user => {
     if (user) {
-    document.getElementById("status").innerText = "Signed in as: " + user.email;
+        document.querySelector('.notification-panel').classList.remove('hidden');
+        document.querySelector('.bell').classList.remove('hidden');
+        document.getElementById("status").innerText = "Signed in as: " + user.email;
+        loginButton.textContent = user.email;
 } else {
-    document.getElementById("status").innerText = "";
+        document.querySelector('.notification-panel').classList.add('hidden');
+        document.querySelector('.bell').classList.add('hidden');
+        document.getElementById("status").innerText = "";
+        loginButton.textContent = 'Prihlásiť sa';
 }
 });
