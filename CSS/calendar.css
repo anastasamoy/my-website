@@ -68,16 +68,54 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.calendar-header {
+.month-nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+.nav-arrow {
+    width: 32px;  /* Было 24px */
+    height: 32px; /* Было 24px */
 }
 
+/* Делаем кнопки более выразительными */
+.month-nav-button:hover {
+    background-color: #e6d5ff; /* Более насыщенный цвет при наведении */
+    transform: scale(1.05);    /* Легкое увеличение при наведении */
+    transition: all 0.2s ease;
+}
+.month-nav-button:hover {
+    background-color: #f2f2f2;
+}
+
+.nav-arrow {
+    width: 24px;
+    height: 24px;
+    fill: #a266ff;
+}
+
+/* Улучшение видимости заголовка месяца */
 .calendar-header h2 {
-    font-size: 24px;
+    margin: 0 15px;
+    font-size: 1.5rem;
     color: #212c47;
+    min-width: 200px;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
 .calendar-header button {

@@ -156,6 +156,19 @@ function showEventDetails(event) {
 
     eventModal.style.display = 'flex';
 }
+// В функции initCalendar() добавьте:
+prevMonthButton.addEventListener('mouseenter', () => {
+    prevMonthButton.style.backgroundColor = '#f2f2f2';
+});
+prevMonthButton.addEventListener('mouseleave', () => {
+    prevMonthButton.style.backgroundColor = 'transparent';
+});
 
+nextMonthButton.addEventListener('mouseenter', () => {
+    nextMonthButton.style.backgroundColor = '#f2f2f2';
+});
+nextMonthButton.addEventListener('mouseleave', () => {
+    nextMonthButton.style.backgroundColor = 'transparent';
+});
 // Инициализация
 document.addEventListener('DOMContentLoaded', initCalendar);

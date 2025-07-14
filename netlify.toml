@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/contact"
-  to = "/html/contact.html"  # Теперь путь правильный
+  to = "/html/contact.html"
   status = 200
 
 [[redirects]]
