@@ -1,4 +1,9 @@
 [[redirects]]
   from = "/contact"
-  to = "/html/contact"
+  to = "/HTML/contact.html"  # Теперь путь правильный
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/HTML/:splat.html"
   status = 200
