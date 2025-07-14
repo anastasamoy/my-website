@@ -4,6 +4,16 @@
   status = 200
 
 [[redirects]]
-  from = "/*"
-  to = "/html/:splat.html"
+  from = "/aktuality"
+  to = "/html/aktuality.html"
+  status = 200
+
+[[redirects]]
+  from = "/calendar"
+  to = "/html/calendar.html"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/html/register.html"
   status = 200
