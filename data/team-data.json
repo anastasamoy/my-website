@@ -1,0 +1,35 @@
+{
+  "team": [
+    {
+      "name": "Michal Maxián",
+      "position": "Technický líder",
+      "bio": "Vedenie technického vývoja projektov a architektúry riešení.",
+      "image": "https://i.pravatar.cc/400?img=11"
+    },
+    {
+      "name": "Tomáš Tomčo",
+      "position": "Manažér tímu",
+      "bio": "Koordinácia tímovej spolupráce a projektového manažmentu.",
+      "image": "https://i.pravatar.cc/400?img=12"
+    },
+    {
+      "name": "Boris Hnila",
+      "position": "Vývojárský tím",
+      "bio": "Backend vývoj a optimalizácia algoritmov.",
+      "image": "https://i.pravatar.cc/400?img=13"
+    },
+    {
+      "name": "Matej Škultéty",
+      "position": "Vývojárský tím",
+      "bio": "Frontend vývoj a UX dizajn.",
+      "image": "https://i.pravatar.cc/400?img=14"
+    },
+    {
+      "name": "Oleh Savchenko",
+      "position": "Vývojárský tím",
+      "bio": "Databázové riešenia a systémová integrácia.",
+      "image": "https://i.pravatar.cc/400?img=15"
+    }
+
+  ]
+}

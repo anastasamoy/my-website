@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Workshop: Základy AI",
+    "date": "2025-09-15",
+    "time": "10:00 - 12:00",
+    "location": "FEI STU, miestnosť A1",
+    "description": "Podrobný popis podujatia..."
+  },
+  {
+    "id": 2,
+    "title": "Prednáška: Etika v AI",
+    "date": "2025-07-20",
+    "time": "14:00 - 16:00",
+    "location": "FEI STU, prednášková miestnosť B2",
+    "description": "Diskusia o etických aspektoch AI..."
+  }
+]

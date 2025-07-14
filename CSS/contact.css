@@ -1,0 +1,89 @@
+.aktuality-hero {
+    background-color: #0b0b0e;
+    color: white;
+    padding: 100px 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.aktuality-hero h1 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #fdfdfd; /* сохраняем текущий цвет */
+    padding: 0 30px;
+}
+.aktu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    padding: 0 40px;
+}
+
+.aktu-header h2 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: black; /* сохраняем текущий цвет */
+    padding: 0 30px;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-bottom: 60px;
+}
+/* Карточки команды */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.team-member img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 21px;
+    margin-bottom: 8px;
+}
+
+
+.team-member h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: rgb(140, 87, 221);
+    line-height: 1.2;
+}
+
+.team-member p.position {
+    font-size: 16px;
+    color: #8f8e8e;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.team-member p.bio {
+    font-size: 15px;
+    color: #686868;
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.2;
+    padding: 0;
+}

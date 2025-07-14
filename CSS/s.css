@@ -1,0 +1,400 @@
+.text h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    font-family: 'CustomFont', sans-serif;
+}
+
+.text p {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+/*White block with content*/
+
+.rounded-white-block {
+    background-color: #dfdfdf;
+    border-radius: 41px;
+    width: calc(100%);
+    margin: 0 auto;
+    min-height: 600px;
+    padding: 40px;
+    margin-top: -41px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/* актуальное */
+.aktu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    padding: 0 40px;
+}
+
+.aktu-header h2 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: black; /* сохраняем текущий цвет */
+    padding: 0 30px;
+}
+.see-more-btn {
+    font-size: 22px;
+    color: #4d118f;
+    margin-bottom: -15px;
+
+}
+.see-more-btn {
+    color: #4d118f;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.see-more-btn:hover {
+    color: #000;
+}
+
+/* карточки актуального*/
+.news-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.news-card {
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    flex: 0 0 auto;
+}
+
+.news-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.news-card p {
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.news-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #555;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.news-card a:hover {
+    color: #000;
+}
+/* Банер*/
+.hero-banner {
+    position: relative;
+    height: 500px;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 50px auto 0 auto;
+    width: 95%;
+    background-image: url('../foto/png.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(55, 54, 54, 0.13));
+    display: flex;
+    align-items: center;
+}
+
+
+.hero-content {
+    color: white;
+    padding: 60px;
+    max-width: 50%;
+}
+
+.hero-content h5 {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 10px 0 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-btn:hover {
+    opacity: 0.8;
+}
+
+/* Team*/
+html {
+    scroll-behavior: smooth;
+}
+.team-section {
+    width: 95%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.team-title {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #212c47; /* сохраняем текущий цвет */
+    text-align: center; /* сохраняем центрирование */
+}
+
+.team-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.team-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.team-text {
+    flex: 1;
+    padding: 20px;
+    color: #212c47;
+}
+
+.team-text h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.team-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.team-image img {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin: 0;
+}
+
+.team-image.image-right img {
+    margin-left: 40px;
+}
+
+.team-image.image-left img {
+    margin-right: 50px;
+}
+
+/* people*/
+.team-members-section {
+    margin-top: -160px;
+}
+
+.team-header {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px 40px;
+    text-align: center;
+}
+
+.team-header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+    color: #212c47; /* сохраняем текущий цвет */
+    line-height: normal; /* сбрасываем line-height */
+    margin-bottom: 24px; /* сохраняем отступ */
+}
+
+.team-header p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgb(33, 44, 71);
+    max-width: 640px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+.team-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* Карточки команды */
+
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.team-member img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 21px;
+    margin-bottom: 8px;
+}
+
+
+.team-member h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: rgb(140, 87, 221);
+    line-height: 1.2;
+}
+
+.team-member p.position {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.team-member p.bio {
+    font-size: 15px;
+    color: #444;
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.2;
+    padding: 0;
+}
+/* Стили для карусели */
+.team-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.team-carousel {
+    display: flex;
+    gap: 20px;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 10px 0;
+}
+
+.team-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.team-member {
+    flex: 0 0 calc(33.333% - 14px);
+    scroll-snap-align: start;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    min-width: 0;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin: 0 0 5px 0;
+    color: #8c57dd;
+    font-size: 1.2rem;
+}
+
+.team-member .position {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.error {
+    color: #ff4444;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 1024px) {
+    .team-member {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .team-member {
+        flex: 0 0 100%;
+    }
+}
