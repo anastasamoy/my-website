@@ -80,6 +80,6 @@
     notificationPanel.classList.add('hidden');
 
     loginButton.textContent = 'Prihlásiť sa';
-    loginButton.onclick = () => window.location.href = 'HTML/register.html';
+    loginButton.onclick = () => window.location.href = '/HTML/register.html';
 }
 });
