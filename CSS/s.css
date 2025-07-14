@@ -323,10 +323,11 @@ html {
     padding: 0;
 }
 /* Стили для карусели */
+/* Обновленные стили для карусели */
 .team-carousel-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 40px; /* Добавлены боковые отступы */
     overflow: hidden;
     position: relative;
 }
@@ -347,54 +348,38 @@ html {
 }
 
 .team-member {
-    flex: 0 0 calc(33.333% - 14px);
+    flex: 0 0 calc(25% - 15px); /* Уменьшена ширина карточки до 25% */
+    min-width: 220px; /* Минимальная ширина карточки */
     scroll-snap-align: start;
     background: white;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s;
-    min-width: 0;
 }
 
 .team-member:hover {
     transform: translateY(-5px);
 }
 
-.team-member img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.team-member h3 {
-    margin: 0 0 5px 0;
-    color: #8c57dd;
-    font-size: 1.2rem;
-}
-
-.team-member .position {
-    color: #666;
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.error {
-    color: #ff4444;
-    text-align: center;
-    padding: 20px;
-}
-
+/* Адаптация для мобильных устройств */
 @media (max-width: 1024px) {
     .team-member {
-        flex: 0 0 calc(50% - 10px);
+        flex: 0 0 calc(33.333% - 14px);
     }
 }
 
 @media (max-width: 768px) {
     .team-member {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member {
         flex: 0 0 100%;
+    }
+    .team-carousel-container {
+        padding: 20px 15px;
     }
 }
